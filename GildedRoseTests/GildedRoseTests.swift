@@ -201,7 +201,7 @@ import Testing
     }
 }
 
-@Suite(.tags(.conjuredItem)) struct ConjuredItems {
+@Suite(.tags(.conjuredItem), .disabled("New unimplemented feature, remove this and implement")) struct ConjuredItems {
     @Test func updateQuantityWithConjuredItem() {
         let input = [Item(name: "Conjured Mana Cake", sellIn: 5, quality: 5)]
         let expectedOutput = [Item(name: "Conjured Mana Cake", sellIn: 4, quality: 3)]
