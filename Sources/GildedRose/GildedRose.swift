@@ -1,3 +1,5 @@
+import FinestGoods
+
 public class GildedRose: ItemQualityUpdater {
     public static func updateQuality(_ items: Array<Item>) -> [Item] {
         var items = items

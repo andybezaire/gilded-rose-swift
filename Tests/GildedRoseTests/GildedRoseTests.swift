@@ -1,4 +1,5 @@
 import Testing
+import FinestGoods
 @testable import GildedRose
 
 @Suite(.tags(.normalItem)) struct NormalItems {
