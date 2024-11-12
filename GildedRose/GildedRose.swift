@@ -1,4 +1,4 @@
-public class GildedRose {
+public class GildedRose: ItemQualityUpdater {
     public static func updateQuality(_ items: Array<Item>) -> [Item] {
         var items = items
         for i in 0 ..< items.count {
