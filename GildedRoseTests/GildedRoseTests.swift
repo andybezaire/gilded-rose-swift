@@ -1,11 +1,9 @@
 import Testing
 @testable import GildedRose
 
-@Suite
 struct GildedRoseTests {
-
-    struct NormalItems {
-        @Test func updateQuantityWithNormalItem() {
+    @Suite(.tags(.normalItem)) struct NormalItems {
+        @Test(.tags(.normalItem)) func updateQuantityWithNormalItem() {
             let input = [Item(name: "+5 Dexterity Vest", sellIn: 10, quality: 20)]
             let expectedOutput = [Item(name: "+5 Dexterity Vest", sellIn: 9, quality: 19)]
             let actualOutput = GildedRose.updateQuality(input)
@@ -46,7 +44,7 @@ struct GildedRoseTests {
         }
     }
 
-    struct AgedBrie {
+    @Suite(.tags(.agedBrie)) struct AgedBrie {
         @Test func updateQuantityWithAgedBrie() {
             let input = [Item(name: "Aged Brie", sellIn: 10, quality: 15)]
             let expectedOutput = [Item(name: "Aged Brie", sellIn: 9, quality: 16)]
@@ -112,7 +110,7 @@ struct GildedRoseTests {
         }
     }
 
-    struct Sulfuras {
+    @Suite(.tags(.sulfura)) struct Sulfuras {
         @Test func updateQuantityWithSulfuras() {
             let input = [Item(name: "Sulfuras, Hand of Ragnaros", sellIn: 10, quality: 80)]
             let expectedOutput = [Item(name: "Sulfuras, Hand of Ragnaros", sellIn: 10, quality: 80)]
@@ -138,7 +136,7 @@ struct GildedRoseTests {
         }
     }
 
-    struct BackstagePasses {
+    @Suite(.tags(.backstagePass)) struct BackstagePasses {
         @Test func updateQuantityWithPassesLongBeforeSellDate() {
             let input = [Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 11, quality: 5)]
             let expectedOutput = [Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 10, quality: 6)]
@@ -204,7 +202,7 @@ struct GildedRoseTests {
         }
     }
 
-    struct ConjuredItems {
+    @Suite(.tags(.conjuredItem)) struct ConjuredItems {
         @Test func updateQuantityWithConjuredItem() {
             let input = [Item(name: "Conjured Mana Cake", sellIn: 5, quality: 5)]
             let expectedOutput = [Item(name: "Conjured Mana Cake", sellIn: 4, quality: 3)]
@@ -237,4 +235,12 @@ struct GildedRoseTests {
             #expect(expectedOutput == actualOutput)
         }
     }
+}
+
+private extension Tag {
+    @Tag static var normalItem: Self
+    @Tag static var agedBrie: Self
+    @Tag static var sulfura: Self
+    @Tag static var backstagePass: Self
+    @Tag static var conjuredItem: Self
 }
